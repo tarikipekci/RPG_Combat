@@ -7,6 +7,7 @@
         "Includes": [
             "e:\\rpg_combat\\combatsystem\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\combatsystem\\definitions.combatsystem.h",
             "e:\\rpg_combat\\combatsystem\\source\\combatsystem\\public\\characters\\combatsystemplayercharacter.h",
+            "e:\\rpg_combat\\combatsystem\\source\\combatsystem\\public\\combatsystemdebughelper.h",
             "e:\\rpg_combat\\combatsystem\\source\\combatsystem\\public\\characters\\combatsystembasecharacter.h",
             "e:\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
             "e:\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",

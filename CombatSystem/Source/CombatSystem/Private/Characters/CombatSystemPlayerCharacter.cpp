@@ -3,3 +3,8 @@
 
 #include "Characters/CombatSystemPlayerCharacter.h"
 
+void ACombatSystemPlayerCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	Debug::Print(TEXT("Working"));
+}

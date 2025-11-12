@@ -143,6 +143,7 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\CombatSystem\Public\Characters\CombatSystemBaseCharacter.h"/>
     <ClInclude Include="..\..\Source\CombatSystem\Public\Characters\CombatSystemPlayerCharacter.h"/>
+    <ClInclude Include="..\..\Source\CombatSystem\Public\CombatSystemDebugHelper.h" />
     <ClInclude Include="..\..\Source\CombatSystem\Public\Controllers\CombatSystemPlayerController.h"/>
     <ClInclude Include="..\..\Source\CombatSystem\Public\GameModes\CombatSystemGameMode.h"/>
   </ItemGroup>
