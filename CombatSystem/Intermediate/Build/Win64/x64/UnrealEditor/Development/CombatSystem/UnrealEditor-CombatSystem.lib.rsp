@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-CombatSystem.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\RPG_Combat\CombatSystem\Intermediate\Build\Win64\x64\CombatSystemEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
+"E:\RPG_Combat\CombatSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\CombatSystem\CombatSystem.cpp.obj"
+"E:\RPG_Combat\CombatSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\CombatSystem\Default.rc2.res"
+/OUT:"E:\RPG_Combat\CombatSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\CombatSystem\UnrealEditor-CombatSystem.lib"
