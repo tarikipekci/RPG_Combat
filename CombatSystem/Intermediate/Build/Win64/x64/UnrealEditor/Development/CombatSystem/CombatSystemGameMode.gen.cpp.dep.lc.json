@@ -1,0 +1,19 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "e:\\rpg_combat\\combatsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\combatsystem\\uht\\combatsystemgamemode.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\rpg_combat\\combatsystem\\intermediate\\build\\win64\\x64\\combatsystemeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "e:\\rpg_combat\\combatsystem\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\combatsystem\\definitions.combatsystem.h",
+            "e:\\rpg_combat\\combatsystem\\source\\combatsystem\\public\\gamemodes\\combatsystemgamemode.h",
+            "e:\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "e:\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "e:\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "e:\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "e:\\rpg_combat\\combatsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\combatsystem\\uht\\combatsystemgamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
