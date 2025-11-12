@@ -1,8 +1,0 @@
-{
-	"SourceFiles": [
-		"E:\\RPG_Combat\\CombatSystem\\Source\\CombatSystem\\CombatSystem.Build.cs",
-		"E:\\RPG_Combat\\CombatSystem\\Source\\CombatSystem.Target.cs",
-		"E:\\RPG_Combat\\CombatSystem\\Source\\CombatSystemEditor.Target.cs"
-	],
-	"EngineVersion": "5.3.2"
-}
