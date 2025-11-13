@@ -12,7 +12,8 @@ public class CombatSystem : ModuleRules
 			"CoreUObject", 
 			"Engine", 
 			"InputCore",
-			"GameplayTags"
+			"GameplayTags",
+			"EnhancedInput"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
