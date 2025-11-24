@@ -4,10 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "AbilitySystemInterface.h"
 #include "CombatSystemBaseCharacter.generated.h"
 
+class UCombatAttributeSet;
+class UCombatAbilitySystemComponent;
+
 UCLASS()
-class COMBATSYSTEM_API ACombatSystemBaseCharacter : public ACharacter
+class COMBATSYSTEM_API ACombatSystemBaseCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -15,6 +19,19 @@ public:
 	// Sets default values for this character's properties
 	ACombatSystemBaseCharacter();
 
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
+protected:
+	virtual void PossessedBy(AController* NewController) override;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AbilitySystem")
+	UCombatAbilitySystemComponent* CombatAbilitySystemComp;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AbilitySystem")
+	UCombatAttributeSet* CombatAttributeSet;
+
+public:
+	FORCEINLINE UCombatAbilitySystemComponent* GetCombatAbilitySystemComp() const { return CombatAbilitySystemComp; }
+
+	FORCEINLINE UCombatAttributeSet* GetCombatAttributeSet() const { return CombatAttributeSet; }
 };

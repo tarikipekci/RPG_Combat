@@ -11,6 +11,7 @@
 
 #include "CombatSystemDebugHelper.h"
 #include "CombatSystemGameplayTags.h"
+#include "AbilitySystem/CombatAbilitySystemComponent.h"
 #include "Components/Input/CombatSystemInputComponent.h"
 #include "DataAssets/Input/DataAsset_InputConfig.h"
 
@@ -37,6 +38,20 @@ ACombatSystemPlayerCharacter::ACombatSystemPlayerCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 }
 
+void ACombatSystemPlayerCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	if (CombatAbilitySystemComp && CombatAttributeSet)
+	{
+		const FString ASCText = FString::Printf(
+			TEXT("Owner Actor: %s, AvatarActor: %s"), *CombatAbilitySystemComp->GetOwnerActor()->GetActorLabel(),
+			*CombatAbilitySystemComp->GetAvatarActor()->GetActorLabel());
+		Debug::Print(TEXT("Ability System comp is valid") + ASCText, FColor::Green);
+		Debug::Print(TEXT("AttributeSet is valid"), FColor::Green);
+	}
+}
+
 void ACombatSystemPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	checkf(InputConfigDataAsset, TEXT("Forgot to assign a valid data asset as input config"));
@@ -60,13 +75,12 @@ void ACombatSystemPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pl
 void ACombatSystemPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	Debug::Print(TEXT("Working"));
 }
 
 void ACombatSystemPlayerCharacter::Input_Move(const FInputActionValue& InputActionValue)
 {
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();
-	const FRotator MovementRotation(0.f, Controller->GetControlRotation().Yaw,0.f);
+	const FRotator MovementRotation(0.f, Controller->GetControlRotation().Yaw, 0.f);
 
 	if (MovementVector.Y != 0.f)
 	{
