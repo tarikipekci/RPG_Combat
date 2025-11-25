@@ -32,5 +32,7 @@ void ACombatSystemBaseCharacter::PossessedBy(AController* NewController)
 	if (CombatAbilitySystemComp)
 	{
 		CombatAbilitySystemComp->InitAbilityActorInfo(this, this);
+
+		ensureMsgf(!CharacterStartUpData.IsNull(), TEXT("Forgot to assign startup data to %s"), *GetName());
 	}
 }

@@ -14,6 +14,7 @@
 #include "AbilitySystem/CombatAbilitySystemComponent.h"
 #include "Components/Input/CombatSystemInputComponent.h"
 #include "DataAssets/Input/DataAsset_InputConfig.h"
+#include "DataAssets/StartUpData/DataAsset_StartUpDataBase.h"
 
 ACombatSystemPlayerCharacter::ACombatSystemPlayerCharacter()
 {
@@ -42,13 +43,12 @@ void ACombatSystemPlayerCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
-	if (CombatAbilitySystemComp && CombatAttributeSet)
+	if (!CharacterStartUpData.IsNull())
 	{
-		const FString ASCText = FString::Printf(
-			TEXT("Owner Actor: %s, AvatarActor: %s"), *CombatAbilitySystemComp->GetOwnerActor()->GetActorLabel(),
-			*CombatAbilitySystemComp->GetAvatarActor()->GetActorLabel());
-		Debug::Print(TEXT("Ability System comp is valid") + ASCText, FColor::Green);
-		Debug::Print(TEXT("AttributeSet is valid"), FColor::Green);
+		if (UDataAsset_StartUpDataBase* LoadedData = CharacterStartUpData.LoadSynchronous())
+		{
+			LoadedData->GiveToAbilitySystemComponent(CombatAbilitySystemComp);
+		}
 	}
 }
 

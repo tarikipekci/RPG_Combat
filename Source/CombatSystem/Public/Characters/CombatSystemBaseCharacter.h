@@ -7,6 +7,7 @@
 #include "AbilitySystemInterface.h"
 #include "CombatSystemBaseCharacter.generated.h"
 
+class UDataAsset_StartUpDataBase;
 class UCombatAttributeSet;
 class UCombatAbilitySystemComponent;
 
@@ -29,6 +30,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AbilitySystem")
 	UCombatAttributeSet* CombatAttributeSet;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="CharacterData")
+	TSoftObjectPtr<UDataAsset_StartUpDataBase> CharacterStartUpData;
 
 public:
 	FORCEINLINE UCombatAbilitySystemComponent* GetCombatAbilitySystemComp() const { return CombatAbilitySystemComp; }
