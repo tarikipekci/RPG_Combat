@@ -9,9 +9,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "EnhancedInputSubsystems.h"
 
-#include "CombatSystemDebugHelper.h"
 #include "CombatSystemGameplayTags.h"
-#include "AbilitySystem/CombatAbilitySystemComponent.h"
+#include "Components/Combat/PlayerCombatComponent.h"
 #include "Components/Input/CombatSystemInputComponent.h"
 #include "DataAssets/Input/DataAsset_InputConfig.h"
 #include "DataAssets/StartUpData/DataAsset_StartUpDataBase.h"
@@ -37,6 +36,8 @@ ACombatSystemPlayerCharacter::ACombatSystemPlayerCharacter()
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 500.f, 0.f);
 	GetCharacterMovement()->MaxWalkSpeed = 400.f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
+
+	PlayerCombatComp = CreateDefaultSubobject<UPlayerCombatComponent>(TEXT("PlayerCombatComponent"));
 }
 
 void ACombatSystemPlayerCharacter::PossessedBy(AController* NewController)

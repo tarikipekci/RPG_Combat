@@ -4,6 +4,7 @@
 #include "AbilitySystem/Abilities/CombatGameplayAbility.h"
 
 #include "AbilitySystemComponent.h"
+#include "Components/Combat/PawnCombatComponent.h"
 
 void UCombatGameplayAbility::OnGiveAbility(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec)
 {
@@ -19,8 +20,9 @@ void UCombatGameplayAbility::OnGiveAbility(const FGameplayAbilityActorInfo* Acto
 }
 
 void UCombatGameplayAbility::EndAbility(const FGameplayAbilitySpecHandle Handle,
-	const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
-	bool bReplicateEndAbility, bool bWasCancelled)
+                                        const FGameplayAbilityActorInfo* ActorInfo,
+                                        const FGameplayAbilityActivationInfo ActivationInfo,
+                                        bool bReplicateEndAbility, bool bWasCancelled)
 {
 	Super::EndAbility(Handle, ActorInfo, ActivationInfo, bReplicateEndAbility, bWasCancelled);
 
@@ -31,4 +33,9 @@ void UCombatGameplayAbility::EndAbility(const FGameplayAbilitySpecHandle Handle,
 			ActorInfo->AbilitySystemComponent->ClearAbility(Handle);
 		}
 	}
+}
+
+UPawnCombatComponent* UCombatGameplayAbility::GetPawnCombatComponentFromActorInfo() const
+{
+	return GetAvatarActorFromActorInfo()->FindComponentByClass<UPawnCombatComponent>();
 }
