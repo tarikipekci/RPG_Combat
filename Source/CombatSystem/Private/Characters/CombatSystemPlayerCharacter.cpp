@@ -10,6 +10,7 @@
 #include "EnhancedInputSubsystems.h"
 
 #include "CombatSystemGameplayTags.h"
+#include "AbilitySystem/CombatAbilitySystemComponent.h"
 #include "Components/Combat/PlayerCombatComponent.h"
 #include "Components/Input/CombatSystemInputComponent.h"
 #include "DataAssets/Input/DataAsset_InputConfig.h"
@@ -71,6 +72,9 @@ void ACombatSystemPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pl
 
 	CombatSystemInputComp->BindNativeInputAction(InputConfigDataAsset, CombatSystemGameplayTags::InputTag_Look,
 	                                             ETriggerEvent::Triggered, this, &ThisClass::Input_Look);
+
+	CombatSystemInputComp->BindAbilityInputAction(InputConfigDataAsset, this, &ThisClass::Input_AbilityInputPressed,
+	                                              &ThisClass::Input_AbilityInputReleased);
 }
 
 void ACombatSystemPlayerCharacter::BeginPlay()
@@ -109,4 +113,14 @@ void ACombatSystemPlayerCharacter::Input_Look(const FInputActionValue& InputActi
 	{
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+
+void ACombatSystemPlayerCharacter::Input_AbilityInputPressed(FGameplayTag InInputTag)
+{
+	CombatAbilitySystemComp->OnAbilityInputPressed(InInputTag);
+}
+
+void ACombatSystemPlayerCharacter::Input_AbilityInputReleased(FGameplayTag InInputTag)
+{
+	CombatAbilitySystemComp->OnAbilityInputReleased(InInputTag);
 }
