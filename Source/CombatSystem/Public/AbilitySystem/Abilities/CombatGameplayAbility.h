@@ -6,6 +6,7 @@
 #include "Abilities/GameplayAbility.h"
 #include "CombatGameplayAbility.generated.h"
 
+class UCombatAbilitySystemComponent;
 class UPawnCombatComponent;
 
 UENUM(BlueprintType)
@@ -32,5 +33,7 @@ protected:
 
 	UFUNCTION(BlueprintPure, Category="CombatAbility")
 	UPawnCombatComponent* GetPawnCombatComponentFromActorInfo() const;
-	
+
+	UFUNCTION(BlueprintPure, Category="CombatAbility")
+	UCombatAbilitySystemComponent* GetCombatAbilitySystemComponentFromActorInfo() const;
 };

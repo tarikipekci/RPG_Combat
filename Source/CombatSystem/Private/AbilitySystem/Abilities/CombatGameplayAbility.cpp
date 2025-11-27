@@ -4,6 +4,7 @@
 #include "AbilitySystem/Abilities/CombatGameplayAbility.h"
 
 #include "AbilitySystemComponent.h"
+#include "AbilitySystem/CombatAbilitySystemComponent.h"
 #include "Components/Combat/PawnCombatComponent.h"
 
 void UCombatGameplayAbility::OnGiveAbility(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec)
@@ -38,4 +39,9 @@ void UCombatGameplayAbility::EndAbility(const FGameplayAbilitySpecHandle Handle,
 UPawnCombatComponent* UCombatGameplayAbility::GetPawnCombatComponentFromActorInfo() const
 {
 	return GetAvatarActorFromActorInfo()->FindComponentByClass<UPawnCombatComponent>();
+}
+
+UCombatAbilitySystemComponent* UCombatGameplayAbility::GetCombatAbilitySystemComponentFromActorInfo() const
+{
+	return Cast<UCombatAbilitySystemComponent>(CurrentActorInfo->AbilitySystemComponent);
 }
