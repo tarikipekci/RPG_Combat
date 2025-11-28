@@ -22,7 +22,7 @@ ACombatSystemBaseCharacter::ACombatSystemBaseCharacter()
 
 UAbilitySystemComponent* ACombatSystemBaseCharacter::GetAbilitySystemComponent() const
 {
-	return GetAbilitySystemComponent();
+	return CombatAbilitySystemComp;
 }
 
 void ACombatSystemBaseCharacter::PossessedBy(AController* NewController)
