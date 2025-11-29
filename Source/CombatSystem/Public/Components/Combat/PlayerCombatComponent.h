@@ -6,6 +6,7 @@
 #include "Components/Combat/PawnCombatComponent.h"
 #include "PlayerCombatComponent.generated.h"
 
+class ACombatPlayerWeapon;
 /**
  * 
  */
@@ -13,5 +14,9 @@ UCLASS()
 class COMBATSYSTEM_API UPlayerCombatComponent : public UPawnCombatComponent
 {
 	GENERATED_BODY()
-	
+
+	public:
+
+	UFUNCTION(BlueprintCallable, Category="Combat")
+	ACombatPlayerWeapon* GetPlayerCarriedWeaponByTag(FGameplayTag InWeaponTag) const;
 };
