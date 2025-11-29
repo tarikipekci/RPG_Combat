@@ -6,6 +6,7 @@
 #include "AnimInstances/CombatSystemBaseAnimInstance.h"
 #include "PlayerLinkedAnimLayer.generated.h"
 
+class UPlayerAnimInstance;
 /**
  * 
  */
@@ -13,5 +14,8 @@ UCLASS()
 class COMBATSYSTEM_API UPlayerLinkedAnimLayer : public UCombatSystemBaseAnimInstance
 {
 	GENERATED_BODY()
-	
+
+public:
+	UFUNCTION(BlueprintPure, meta=(BlueprintThreadSafe))
+	UPlayerAnimInstance* GetPlayerAnimInstance() const;
 };
