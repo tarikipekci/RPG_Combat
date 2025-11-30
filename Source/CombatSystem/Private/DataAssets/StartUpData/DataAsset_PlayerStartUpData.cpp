@@ -6,11 +6,6 @@
 #include "AbilitySystem/CombatAbilitySystemComponent.h"
 #include "AbilitySystem/Abilities/CombatGameplayAbility.h"
 
-bool FCombatPlayerAbilitySet::IsValid() const
-{
-	return InputTag.IsValid() && AbilityToGrant;
-}
-
 void UDataAsset_PlayerStartUpData::GiveToAbilitySystemComponent(UCombatAbilitySystemComponent* InCombatAscToGive,
 	int32 ApplyLevel)
 {

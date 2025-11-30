@@ -3,23 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameplayTagContainer.h"
+#include "CombatSystemTypes/CombatStructTypes.h"
 #include "DataAssets/StartUpData/DataAsset_StartUpDataBase.h"
 #include "DataAsset_PlayerStartUpData.generated.h"
 
-USTRUCT(BlueprintType)
-struct FCombatPlayerAbilitySet
-{
-	GENERATED_BODY()
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(Categories = "InputTag"))
-	FGameplayTag InputTag;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSubclassOf<UCombatGameplayAbility> AbilityToGrant;
-
-	bool IsValid() const;
-};
 /**
  * 
  */
