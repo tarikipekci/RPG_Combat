@@ -3,3 +3,12 @@
 
 #include "Items/Weapons/CombatPlayerWeapon.h"
 
+void ACombatPlayerWeapon::AssignGrantedAbilitySpecHandles(const TArray<FGameplayAbilitySpecHandle>& InSpecHandles)
+{
+	GrantedAbilitySpecHandles = InSpecHandles;
+}
+
+TArray<FGameplayAbilitySpecHandle> ACombatPlayerWeapon::GetGrantedAbilitySpecHandles() const
+{
+	return GrantedAbilitySpecHandles;
+}
